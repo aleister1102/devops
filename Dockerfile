@@ -1,4 +1,4 @@
-FROM node:node:14-alpine
+FROM node:19-alpine3.16
 MAINTAINER Aleister<marucube35@gmail.com>
 WORKDIR /app
 COPY . /app
