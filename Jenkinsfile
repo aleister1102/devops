@@ -13,7 +13,7 @@ pipeline {
         }
         stage ('Push docker image') {
             steps {
-                bat 'docker push marucube34/devops:production'
+                bat 'docker push marucube34/devops:latest'
             }
         }
     }
