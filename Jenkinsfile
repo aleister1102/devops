@@ -8,8 +8,8 @@ pipeline {
         }
         stage ('Docker') {
             steps {
-                sh 'docker build -t marucube34/devops'
-                sh 'docker push marucube34/devops'
+                bat 'docker build -t marucube34/devops'
+                bat 'docker push marucube34/devops'
             }
         }
     }
