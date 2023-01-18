@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic');
+@import './mixins.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.App {
+    @include flex(column, flex-start, center, nowrap);
+    height: 100vh;
+    background-color: #f9fbfe;
+}
+
+header {
+    @include flex(column, center, center);
+    width: 100%;
+    margin-top: 20px;
+
+    h1 {
+        @include font(60px, 500);
+    }
+    p {
+        @include font(40px, 300);
+    }
+}
+
+form {
+    @include flex(row, space-between, center);
+    width: 80%;
+    padding: 30px 0;
+    margin: 15px 0;
+
+    input {
+        @include input(8px);
+        @include font(20px, 300);
+        width: 75%;
+        padding: 15px 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+    input:hover,
+    input:focus {
+        background-color: #eadef5;
+    }
+    input::placeholder {
+        @include font(14px);
+    }
+
+    button {
+        @include button(8px);
+        width: 20%;
+        color: #fff;
+        font-size: 20px;
+        padding: 15px 35px;
+        text-transform: uppercase;
+        background-color: #595dff;
+    }
+    button:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}
+
+main {
+    @include flex(row, space-between, center);
+    width: 80%;
+
+    .color-card {
+        @include size(160px);
+        @include font(24px, 500);
+        @include flex(column, center, center);
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        color: #fff;
+        margin: 2px;
+        position: relative;
+
+        div {
+            text-align: center;
+            margin: 16px 0;
+
+            i {
+                font-size: 28px;
+            }
+            i:hover {
+                cursor: pointer;
+            }
+        }
+        div::after {
+            @include font(14px, 600);
+            content: none;
+            padding: 6px 16px;
+            border-radius: 0 0 8px 8px;
+            background-color: #2b20208c;
+            @include position(absolute, unset, 0, 0, 0);
+            z-index: 1;
+        }
+        .copy:hover::after {
+            content: 'Copy';
+        }
+        .copied:hover::after {
+            content: 'Copied';
+        }
+    }
+}

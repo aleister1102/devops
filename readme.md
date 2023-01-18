@@ -1,1 +1,1 @@
-# DevOps project
+# Color generator
