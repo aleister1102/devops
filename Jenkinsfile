@@ -11,8 +11,8 @@ pipeline {
     stages {
         stage ('Docker') {
             steps {
-                sh 'docker build -t marucube35/devops'
-                sh 'docker push marucube35/devops'
+                sh 'docker build -t marucube34/devops'
+                sh 'docker push marucube34/devops'
             }
         }
     }
