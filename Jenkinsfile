@@ -6,9 +6,6 @@ pipeline {
                 git 'https://github.com/aleister1102/devops.git'
             }
         }
-    }
-
-    stages {
         stage ('Docker') {
             steps {
                 sh 'docker build -t marucube34/devops'
