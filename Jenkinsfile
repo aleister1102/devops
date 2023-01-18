@@ -1,23 +1,10 @@
 pipeline {
     agent any
-    tools {
-        dockerTool 'docker' 
-    }
     stages {
         stage ('Clone') {
             steps {
                 git 'https://github.com/marucube35/devops.git'
             }
-        }
-        stage ('Docker') {
-            steps {
-                tool name: 'docker', type: 'dockerTool'
-
-                withDockerRegistry(credentialsId: 'docker', url: 'https://index.docker.io/v1/') {
-                    sh 'docker build -t marucube34/devops:v1'
-                }
-            }
-
         }
     }
 }
