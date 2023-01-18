@@ -1,15 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage ('Clone') {
+        stage ('Clone github repo') {
             steps {
                 git 'https://github.com/aleister1102/devops.git'
             }
         }
-        stage ('Docker') {
+        stage ('Build docker image') {
             steps {
                 bat 'docker build -t marucube34/devops .'
-                bat 'docker push marucube34/devops'
             }
         }
     }
