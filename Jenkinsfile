@@ -9,6 +9,7 @@ pipeline {
         stage ('Build docker image') {
             steps {
                 bat 'docker build -t marucube34/devops .'
+                bat 'docker push marucube34/devops'
             }
         }
     }
