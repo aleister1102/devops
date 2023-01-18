@@ -9,7 +9,7 @@ pipeline {
 
         stage ('Docker') {
             steps {
-                withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
                     sh 'docker build -t marucube34/devops'
                     sh 'docker push marucube34/devops'
                 }
