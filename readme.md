@@ -1,1 +1,1 @@
-# Color generator
+# Color Generator
