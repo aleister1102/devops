@@ -1,19 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage ('Clone github repository') {
+        stage ('Pull GitHub repository') {
             steps {
-                git 'https://github.com/aleister1102/devops.git'
+                git credentialsId: 'GitHub', url: 'https://github.com/aleister1102/devops.git'
             }
         }
-        stage ('Build docker image') {
+        stage ('Build and publish Docker image') {
             steps {
-                bat 'docker build -t marucube34/devops .'
-            }
-        }
-        stage ('Push docker image') {
-            steps {
-                bat 'docker push marucube34/devops:latest'
+                withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/') {
+                    bat 'docker build -t aleister1102/devops .'
+                    bat 'docker push aleister1102/devops:latest'
+                }
             }
         }
     }
