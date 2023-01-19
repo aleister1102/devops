@@ -9,8 +9,8 @@ pipeline {
         stage ('Build and publish Docker image') {
             steps {
                 withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/') {
-                    bat 'docker build -t aleister1102/devops .'
-                    bat 'docker push aleister1102/devops:latest'
+                    bat 'docker build -t marucube34/devops .'
+                    bat 'docker push marucube34/devops:latest'
                 }
             }
         }
